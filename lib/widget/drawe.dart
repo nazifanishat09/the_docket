@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:the_docket/database/database.dart';
+import 'package:the_docket/widget/search_filed.dart';
 
 import '../new_file_screen/new_file_screen.dart';
+import 'note_card.dart';
 
 class DrawerScreen extends StatefulWidget {
-  const DrawerScreen({super.key});
-
+  const DrawerScreen({super.key, required this.i});
+final int i;
   @override
   State<DrawerScreen> createState() => _DrawerScreenState();
 }
@@ -143,30 +146,15 @@ class _DrawerScreenState extends State<DrawerScreen> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(width: 370,
-              // height: 50,
-              child: TextField(
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  hintText: "Search..",
-                  prefixIcon: Icon(Icons.search,color: Colors.grey,),
-                  hintStyle: TextStyle(color: Colors.grey,fontWeight: FontWeight.w700,fontStyle: FontStyle.italic),
-                  filled: true,
-                  fillColor: Colors.deepPurple[50],
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
+            search_filed(),
+            SizedBox(height: 10),
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: DataBase().list.length,
+                itemBuilder: (Context, index) => NoteCard(i:index),
               ),
             ),
-            
           ],
         ),
       ),
@@ -185,3 +173,5 @@ class _DrawerScreenState extends State<DrawerScreen> {
     );
   }
 }
+
+

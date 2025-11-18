@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:the_docket/splash/splashScreen.dart';
+import 'package:the_docket/widget/drawe.dart';
 
 import 'dower/drawe.dart';
 
@@ -24,6 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: DrawerScreen(),
+
 
     );
   }
