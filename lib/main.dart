@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:the_docket/splash/splashScreen.dart';
 import 'package:the_docket/widget/drawe.dart';
 
-import 'dower/drawe.dart';
+
 
 void main(){
   runApp(MyApp());
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DrawerScreen(),
+      home: DrawerScreen(i: 1,),
 
 
     );

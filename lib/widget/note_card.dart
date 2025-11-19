@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../database/database.dart';
 class NoteCard extends StatelessWidget {
   const NoteCard({
-    super.key, required int i,
+    super.key, required this.i,
   });
-
+final int i;
 
 
   @override
