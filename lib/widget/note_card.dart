@@ -40,6 +40,8 @@ class NoteCard extends StatelessWidget {
                   children: [
                     Text(
                       "${DataBase().list[i]['title']}",
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -59,6 +61,7 @@ class NoteCard extends StatelessWidget {
                 Text(
                   "${DataBase().list[i]['note']}",
                   maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 14,
                     //fontWeight: FontWeight.w700,
