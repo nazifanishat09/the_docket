@@ -7,7 +7,7 @@ import 'drawer.dart';
 import 'note_card.dart';
 
 class NoteScreen extends StatefulWidget {
-  const NoteScreen({super.key,});
+  const NoteScreen({super.key});
 
   @override
   State<NoteScreen> createState() => _NoteScreenState();
@@ -19,7 +19,14 @@ class _NoteScreenState extends State<NoteScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff3a355e),
-        leading: Icon(Icons.menu, color: Colors.white),
+        leading: Builder(
+          builder: (a) => IconButton(
+            icon: Icon(Icons.menu, color: Colors.white),
+            onPressed: () {
+              Scaffold.of(a).openDrawer();
+            },
+          ),
+        ),
         centerTitle: true,
         title: Text(
           "The Docket",
@@ -37,7 +44,7 @@ class _NoteScreenState extends State<NoteScreen> {
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: DataBase().list.length,
-                itemBuilder: (Context, index) => NoteCard(i:index),
+                itemBuilder: (Context, index) => NoteCard(i: index),
               ),
             ),
           ],
@@ -58,7 +65,3 @@ class _NoteScreenState extends State<NoteScreen> {
     );
   }
 }
-
-
-
-

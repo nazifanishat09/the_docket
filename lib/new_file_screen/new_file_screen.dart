@@ -42,6 +42,22 @@ Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteScreen()));
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: TextField(
+              keyboardType: TextInputType.text,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+
+                hintText: "Note your day..",
+                hintStyle: TextStyle(
+                  fontSize: 15,
+                 //S fontWeight: FontWeight.bold,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
