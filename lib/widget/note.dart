@@ -29,8 +29,9 @@ class _NoteScreenState extends State<NoteScreen> {
         ),
         centerTitle: true,
         title: Text(
-          "The Docket",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          "The Docket \n"
+              "Create by Nazifa Akter Nishat",
+          style: TextStyle(fontSize: 16,color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       drawer: DrawerWidget(),
