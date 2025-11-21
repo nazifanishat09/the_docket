@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:the_docket/splash/splashScreen.dart';
-import 'package:the_docket/widget/drawe.dart';
+import 'package:the_docket/widget/note.dart';
 
 
 
@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DrawerScreen(i: 1,),
+      home: Splashscreen(),
 
 
     );

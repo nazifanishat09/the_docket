@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_docket/widget/note.dart';
 
 class NewFileScreen extends StatefulWidget {
   const NewFileScreen({super.key});
@@ -12,7 +13,10 @@ class _NewFileScreenState extends State<NewFileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios),
+        leading: InkWell(onTap: (){
+Navigator.push(context, MaterialPageRoute(builder: (a)=>NoteScreen()));
+        },
+             child: Icon(Icons.arrow_back_ios)),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 15),
@@ -27,7 +31,7 @@ class _NewFileScreenState extends State<NewFileScreen> {
             child: TextField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                border: InputBorder.none,
+                //border: InputBorder.none,
 
                 hintText: "Title",
                 hintStyle: TextStyle(

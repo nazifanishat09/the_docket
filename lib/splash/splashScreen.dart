@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_docket/widget/note.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -8,6 +9,15 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
+  NextPage()async{
+await Future.delayed(Duration(seconds: 2));
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (a)=>NoteScreen()));
+  }
+  @override
+  void initState() {
+    NextPage();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
