@@ -23,9 +23,9 @@ class NoteCard extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (a) => ViewNote(
-                title: "${DataBase().list[i]['title']}",
-                date: "${DataBase().list[i]['date']}",
-                note: "${DataBase().list[i]['note']}",
+                title: "${DataBase.list[i]['title']}",
+                date: "${DataBase.list[i]['date']}",
+                note: "${DataBase.list[i]['note']}",
               ),
             ),
           );
@@ -39,7 +39,7 @@ class NoteCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${DataBase().list[i]['title']}",
+                      "${DataBase.list[i]['title']}",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -49,7 +49,7 @@ class NoteCard extends StatelessWidget {
                     ),
 
                     Text(
-                      "${DataBase().list[i]['date']}",
+                      "${DataBase.list[i]['date']}",
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
@@ -59,7 +59,7 @@ class NoteCard extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "${DataBase().list[i]['note']}",
+                  "${DataBase.list[i]['note']}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

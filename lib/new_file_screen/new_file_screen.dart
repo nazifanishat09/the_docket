@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:the_docket/widget/note.dart';
 
+import '../database/database.dart';
+
 class NewFileScreen extends StatefulWidget {
   const NewFileScreen({super.key});
 
@@ -35,14 +37,16 @@ class _NewFileScreenState extends State<NewFileScreen> {
                 log("${noteController.text}");
                 log("====");
 
-                List<Map<String, dynamic>> l = [
+                Map<String, dynamic> l =
                   {
                     'id': 1,
                     'title': titleController.text,
                     'date': '${DateTime.now()}',
                     'note': noteController.text,
-                  },
-                ];
+                  };DataBase.list.add(l);
+                  Navigator.pop(context);
+
+
               },
               child: Icon(Icons.check),
             ),

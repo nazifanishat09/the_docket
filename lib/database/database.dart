@@ -1,5 +1,5 @@
 class DataBase {
-  List<Map<String, dynamic>> list = [
+  static List<Map<String, dynamic>> list = [
     {
       'id': 1,
       'title': 'Meeting Summary',

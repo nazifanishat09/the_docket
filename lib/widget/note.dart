@@ -30,8 +30,12 @@ class _NoteScreenState extends State<NoteScreen> {
         centerTitle: true,
         title: Text(
           "The Docket \n"
-              "Create by Nazifa Akter Nishat",
-          style: TextStyle(fontSize: 16,color: Colors.white, fontWeight: FontWeight.bold),
+          "Create by Nazifa Akter Nishat",
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       drawer: DrawerWidget(),
@@ -44,7 +48,7 @@ class _NoteScreenState extends State<NoteScreen> {
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: DataBase().list.length,
+                itemCount: DataBase.list.length,
                 itemBuilder: (Context, index) => NoteCard(i: index),
               ),
             ),
@@ -56,7 +60,9 @@ class _NoteScreenState extends State<NoteScreen> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (a) => NewFileScreen()),
-          );
+          ).then((a) {
+            setState(() {});
+          });
         },
         backgroundColor: Color(0xff3a355e),
         foregroundColor: Colors.white,
