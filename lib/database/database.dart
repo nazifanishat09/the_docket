@@ -7,4 +7,5 @@ class DataBase {
       'note': 'Discussed Q4 targets and budget allocations.',
     },
   ];
+  static List<Map<String, dynamic>> trashList = [];
 }

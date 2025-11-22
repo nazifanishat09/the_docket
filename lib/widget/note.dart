@@ -3,7 +3,7 @@ import 'package:the_docket/database/database.dart';
 import 'package:the_docket/widget/search_filed.dart';
 
 import '../new_file_screen/new_file_screen.dart';
-import 'drawer.dart';
+import '../drawer/drawer.dart';
 import 'note_card.dart';
 
 class NoteScreen extends StatefulWidget {
@@ -64,6 +64,9 @@ class _NoteScreenState extends State<NoteScreen> {
                           },
                               child: Text("Cancel")),
                           InkWell(onTap:(){
+                            DataBase.trashList.add(DataBase.list[index]);
+                            DataBase.list.removeAt(index);
+                            setState(() {});
                             Navigator.pop(context);
                           },
                               child: Text("Delete",style: TextStyle(
