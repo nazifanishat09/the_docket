@@ -49,7 +49,32 @@ class _NoteScreenState extends State<NoteScreen> {
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: DataBase.list.length,
-                itemBuilder: (Context, index) => NoteCard(i: index),
+                itemBuilder: (Context, index) => InkWell(
+                  onLongPress: () {
+                    showDialog(
+                      context: context,
+                      builder: (a) => AlertDialog(
+                        title: Text("Delete file"),
+                        content: Text(
+                          "Are you sure you want to delete this file?",
+                        ),
+                        actions: [
+                          InkWell(onTap:(){
+                            Navigator.pop(context);
+                          },
+                              child: Text("Cancel")),
+                          InkWell(onTap:(){
+                            Navigator.pop(context);
+                          },
+                              child: Text("Delete",style: TextStyle(
+                                color: Colors.red,
+                              ),)),
+                        ],
+                      ),
+                    );
+                  },
+                  child: NoteCard(i: index),
+                ),
               ),
             ),
           ],
