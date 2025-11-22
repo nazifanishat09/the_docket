@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_docket/drawer/tash/trashList.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
@@ -62,27 +63,31 @@ class DrawerWidget extends StatelessWidget {
             child: Row(
               spacing: 10,
               children: [
-                Container(
-                  height: 40,
-                  width: 275,
-                  decoration: BoxDecoration(
-                    color: Colors.purple[50],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Row(
-                      spacing: 10,
-                      children: [
-                        Icon(Icons.delete),
-                        Text(
-                          "Trash",
-                          style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w700,
+                InkWell(onTap: (){
+                  Navigator.push(context,MaterialPageRoute(builder: (a)=>TrashFile()));
+                },
+                  child: Container(
+                    height: 40,
+                    width: 275,
+                    decoration: BoxDecoration(
+                      color: Colors.purple[50],
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        spacing: 10,
+                        children: [
+                          Icon(Icons.delete),
+                          Text(
+                            "Trash",
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
