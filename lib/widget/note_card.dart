@@ -1,12 +1,25 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:the_docket/new_file_screen/new_file_screen.dart';
 import 'package:the_docket/note_view/note_view.dart';
 
 import '../database/database.dart';
 
-class NoteCard extends StatelessWidget {
-  const NoteCard({super.key, required this.i});
+class NoteCard extends StatefulWidget {
+  const NoteCard({super.key, required this.i,required this.listName});
   final int i;
+  final String listName;//notePage or trash page
+
+
+  @override
+
+  State<NoteCard> createState() => _NoteCardState();
+}
+
+class _NoteCardState extends State<NoteCard> {
+
+ late Map tempMap = widget.listName == "list" ?  DataBase.list[widget.i] : DataBase.trashList[widget.i];
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +36,9 @@ class NoteCard extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (a) => ViewNote(
-                title: "${DataBase.list[i]['title']}",
-                date: "${DataBase.list[i]['date']}",
-                note: "${DataBase.list[i]['note']}",
+                title: "${tempMap['title']}",
+                date: "${tempMap['date']}",
+                note: "${tempMap['note']}",
               ),
             ),
           );
@@ -39,7 +52,7 @@ class NoteCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "${DataBase.list[i]['title']}",
+                      "${tempMap['title']}",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -49,7 +62,7 @@ class NoteCard extends StatelessWidget {
                     ),
 
                     Text(
-                      "${DataBase.list[i]['date']}",
+                      "${tempMap['date']}",
                       style: TextStyle(
                         fontSize: 12,
                         color: Colors.grey,
@@ -59,7 +72,7 @@ class NoteCard extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  "${DataBase.list[i]['note']}",
+                  "${tempMap['note']}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:the_docket/database/database.dart';
 import 'package:the_docket/widget/search_filed.dart';
@@ -8,6 +10,7 @@ import 'note_card.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
+
 
   @override
   State<NoteScreen> createState() => _NoteScreenState();
@@ -65,6 +68,7 @@ class _NoteScreenState extends State<NoteScreen> {
                               child: Text("Cancel")),
                           InkWell(onTap:(){
                             DataBase.trashList.add(DataBase.list[index]);
+                            log("=====${DataBase.trashList}=====");
                             DataBase.list.removeAt(index);
                             setState(() {});
                             Navigator.pop(context);
@@ -76,7 +80,7 @@ class _NoteScreenState extends State<NoteScreen> {
                       ),
                     );
                   },
-                  child: NoteCard(i: index),
+                  child: NoteCard(i: index, listName: 'list',),
                 ),
               ),
             ),
