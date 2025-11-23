@@ -7,19 +7,18 @@ import 'package:the_docket/note_view/note_view.dart';
 import '../database/database.dart';
 
 class NoteCard extends StatefulWidget {
-  const NoteCard({super.key, required this.i,required this.listName});
+  const NoteCard({super.key, required this.i, required this.listName});
   final int i;
-  final String listName;//notePage or trash page
-
+  final String listName; //notePage or trash page
 
   @override
-
   State<NoteCard> createState() => _NoteCardState();
 }
 
 class _NoteCardState extends State<NoteCard> {
-
- late Map tempMap = widget.listName == "list" ?  DataBase.list[widget.i] : DataBase.trashList[widget.i];
+  late Map tempMap = widget.listName == "list"
+      ? DataBase.list[widget.i]
+      : DataBase.trashList[widget.i];
 
   @override
   Widget build(BuildContext context) {
