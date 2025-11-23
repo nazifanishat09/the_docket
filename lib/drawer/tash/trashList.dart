@@ -1,7 +1,9 @@
 import 'dart:core';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:the_docket/database/database.dart';
+import 'package:the_docket/widget/note.dart';
 import 'package:the_docket/widget/note_card.dart';
 
 class TrashFile extends StatefulWidget {
@@ -53,7 +55,10 @@ class _TrashFileState extends State<TrashFile> {
                        child: Text("Restore",style: TextStyle(color: Colors.green),)),SizedBox(width: 25,),
                    InkWell(onTap: (){
                      DataBase.trashList.removeAt(i);
-                     setState(() {});
+
+                     setState(() {
+
+                     });
                    },
                        child: Text("Delete",style: TextStyle(color: Colors.red),)),SizedBox(width: 25,),
                    InkWell(onTap: (){

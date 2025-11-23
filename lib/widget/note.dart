@@ -1,16 +1,13 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:the_docket/database/database.dart';
 import 'package:the_docket/widget/search_filed.dart';
-
 import '../new_file_screen/new_file_screen.dart';
 import '../drawer/drawer.dart';
 import 'note_card.dart';
 
 class NoteScreen extends StatefulWidget {
   const NoteScreen({super.key});
-
 
   @override
   State<NoteScreen> createState() => _NoteScreenState();
@@ -48,59 +45,67 @@ class _NoteScreenState extends State<NoteScreen> {
           children: [
             search_filed(),
             SizedBox(height: 10),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: DataBase.list.length,
-                itemBuilder: (Context, index) => InkWell(
-                  onLongPress: () {
-                    showDialog(
-                      context: context,
-                      builder: (a) => AlertDialog(
-                        title: Text("Delete file"),
-                        content: Text(
-                          "Are you sure you want to delete this file?",
-                        ),
-                        actions: [
-                          InkWell(onTap:(){
-                            Navigator.pop(context);
-                          },
-                              child: Text("Cancel")),
-                          InkWell(onTap:(){
-                            DataBase.trashList.add(DataBase.list[index]);
-                            log("=====${DataBase.trashList}=====");
-                            DataBase.list.removeAt(index);
-                            setState(() {});
-                            Navigator.pop(context);
-                          },
-                              child: Text("Delete",style: TextStyle(
-                                color: Colors.red,
-                              ),)),
-                        ],
-                      ),
-                    );
-                  },
-                  child: NoteCard(i: index, listName: 'list',),
-                ),
-              ),
-            ),
+            CardExpanded(context),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (a) => NewFileScreen()),
-          ).then((a) {
-            setState(() {});
-          });
-        },
-        backgroundColor: Color(0xff3a355e),
-        foregroundColor: Colors.white,
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: Add_button(context),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+    );
+  }
+
+  FloatingActionButton Add_button(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (a) => NewFileScreen()),
+        ).then((a) {
+          setState(() {});
+        });
+      },
+      backgroundColor: Color(0xff3a355e),
+      foregroundColor: Colors.white,
+      child: Icon(Icons.add),
+    );
+  }
+
+  Expanded CardExpanded(BuildContext context) {
+    return Expanded(
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: DataBase.list.length,
+        itemBuilder: (Context, index) => InkWell(
+          onLongPress: () {
+            showDialog(
+              context: context,
+              builder: (a) => AlertDialog(
+                title: Text("Delete file"),
+                content: Text("Are you sure you want to delete this file?"),
+                actions: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text("Cancel"),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      DataBase.trashList.add(DataBase.list[index]);
+                      log("=====${DataBase.trashList}=====");
+                      DataBase.list.removeAt(index);
+                      setState(() {});
+                      Navigator.pop(context);
+                    },
+                    child: Text("Delete", style: TextStyle(color: Colors.red)),
+                  ),
+                ],
+              ),
+            );
+          },
+          child: NoteCard(i: index, listName: 'list'),
+        ),
+      ),
     );
   }
 }
