@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:the_docket/splash/splashScreen.dart';
 import 'package:the_docket/widget/note.dart';
 
+import 'login/singin_page.dart';
+
 
 
 void main(){
@@ -24,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splashscreen(),
+      home:SignInPage(),
 
 
     );

@@ -2,6 +2,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:the_docket/database/database.dart';
 import 'package:the_docket/widget/search_filed.dart';
+import '../drawer/tash/trashList.dart';
 import '../new_file_screen/new_file_screen.dart';
 import '../drawer/drawer.dart';
 import 'note_card.dart';
@@ -38,7 +39,16 @@ class _NoteScreenState extends State<NoteScreen> {
           ),
         ),
       ),
-      drawer: DrawerWidget(),
+      drawer: DrawerWidget(
+        ontap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (a) => TrashFile()),
+          ).then((value) {
+            setState(() {});
+          });
+        },
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
