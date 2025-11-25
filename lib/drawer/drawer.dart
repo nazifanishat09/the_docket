@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:the_docket/drawer/tash/trashList.dart';
 
 class DrawerWidget extends StatelessWidget {
+<<<<<<< HEAD
   const DrawerWidget({
     super.key, required this.ontap,
   });
 final VoidCallback ontap;
+=======
+  const DrawerWidget({super.key});
+>>>>>>> d67b171 (mm)
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +68,13 @@ final VoidCallback ontap;
             child: Row(
               spacing: 10,
               children: [
-                InkWell(onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (a)=>TrashFile()));
-                },
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (a) => TrashFile()),
+                    );
+                  },
                   child: Container(
                     height: 40,
                     width: 275,

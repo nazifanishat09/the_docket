@@ -2,7 +2,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:the_docket/database/database.dart';
 import 'package:the_docket/widget/search_filed.dart';
+<<<<<<< HEAD
 import '../drawer/tash/trashList.dart';
+=======
+>>>>>>> d67b171 (mm)
 import '../new_file_screen/new_file_screen.dart';
 import '../drawer/drawer.dart';
 import 'note_card.dart';
