@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:the_docket/widget/note.dart';
 
@@ -32,21 +33,27 @@ class _NewFileScreenState extends State<NewFileScreen> {
           Padding(
             padding: const EdgeInsets.only(right: 15),
             child: InkWell(
-              onTap: () {
-                log("${titleController.text}");
-                log("${noteController.text}");
+              onTap: ()async {
+                FirebaseDatabase database = FirebaseDatabase.instance;
+                log(titleController.text);
+                log(noteController.text);
                 log("====");
 
-                Map<String, dynamic> l =
-                  {
-                    'id': 1,
-                    'title': titleController.text,
-                    'date': '${DateTime.now()}',
-                    'note': noteController.text,
-                  };DataBase.list.add(l);
-                  Navigator.pop(context);
+                Map<String, dynamic> l = {
+                  'id': 1,
+                  'title': titleController.text,
+                  'date': '${DateTime.now()}',
+                  'note': noteController.text,
+                };
+              //  DataBase.list.add(l);
+                try {await database.ref("title").child("note").set("data");
 
 
+                }catch(e){
+                  log("👉👉👉👉👉👉👉👉$e");
+                }
+
+                Navigator.pop(context);
               },
               child: Icon(Icons.check),
             ),
